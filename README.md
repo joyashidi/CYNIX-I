@@ -5,15 +5,13 @@ This is a project to capture two (2) flags. I had to find and read the flags (us
 
  Vulnerability Exploited: Local File Inclusion (LFI), Google lxb
 
- 3.1 Information Gathering 
-
-    Making use of nmap, I discovered the ip address of the target virtual machine. 
+Information Gathering 
+ 
+Making use of nmap, I discovered the ip address of the target virtual machine. 
 
 Target ip address: 192.168.56.104 
 
 Host ip address: 192.168.56.101 
-
-Information Gathering
 
 I went on further to scan the target machine, making use of nmap and discovered 2 open ports which are ports 80 and 6688 on this target machine. Port 80 runs HTTP but port 6688 is running SSH, we can say it is making use of an unallocated port. 
 
@@ -118,7 +116,7 @@ Gained access to the root, making me able to view files present in the root syst
 I eventually got the root.txt flag of the target virtual machine. 
 
 
-4. Recommendations 
+Recommendations 
 
 I recommend validating and sanitizing user input, using absolute file paths, and implementing strict access controls to prevent unauthorized access to sensitive files. Disable directory listing and ensure proper error handling to avoid information leakage. Restrict container privileges by running them unprivileged, control device access, and keep both LXD and the host kernel updated. Use security profiles to isolate containers from the host system and reduce attack surfaces. Regularly audit container configurations and limit network exposure to trusted IPs. 
 
