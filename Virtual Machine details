@@ -1,0 +1,13 @@
+Virtual Machine
+
+Link: https://www.vulnhub.com/entry/cynix-1,394/#download
+
+
+Description
+
+    Level: Intermediate-Hard
+    User flag: user.txt
+    Root flag: root.txt
+    Description: It's a Boot2Root machine. The machine is VirtualBox compatible but can be used in VMWare as well (not tested but it should work). The DHCP will assign an IP automatically. You have to find and read two flags (user and root) which is present in user.txt and root.txt respectively. Enjoy pwning it!
+
+This works better with VirtualBox rather than VMware.
