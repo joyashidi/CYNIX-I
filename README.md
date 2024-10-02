@@ -3,9 +3,9 @@ This is a project to capture two (2) flags. I had to find and read the flags (us
 
  During the testing I discovered the IP address of the target machine; 192.168.56.104 
 
- Vulnerability Exploited: Local File Inclusion (LFI), Google lxb
+** Vulnerability Exploited: Local File Inclusion (LFI), Google lxb**
 
-Information Gathering 
+**Information Gathering **
  
 Making use of nmap, I discovered the ip address of the target virtual machine. 
 
@@ -23,7 +23,7 @@ I went on further to scan the target machine, making use of nmap and discovered 
 
 -sVC is the same as –sV (services operating on the ports) -sC (script scanning) 
 
-Service Enumeration 
+**Service Enumeration **
 
 This is a process of identifying and gathering information about the services running on a computer system or network. In this test the service HTTP was further investigated. 
 
@@ -68,7 +68,7 @@ To verify LFI, I looked for /etc/passwd file by injecting “../../../etc/passwd
 curl -X POST -d "file=6../../../../etc/passwd&read=Download+the+number" http://192.168.56.104/lavalamp/canyoubypassme.php 
 
  
-Exploitation 
+**Exploitation **
 
  SSH is installed on the host machine, so I also checked for ssh rsa key by injecting “../../../home/ford/.ssh/id_rsa” in parameter ‘’file=6” as a result I found id_rsa key for ssh.  
 
@@ -84,7 +84,7 @@ chmod 600 sshkey1
 ssh ford@192.168.56.104 -p 6688 -i sshkey1 
 
  
- Privilege Escalation 
+** Privilege Escalation **
 
 As the name implies this is gaining more access than a typical user is authorised to. I Checked the directory and found it only has a user's directory so I decided to check the group memberships.  
  
@@ -116,7 +116,7 @@ Gained access to the root, making me able to view files present in the root syst
 I eventually got the root.txt flag of the target virtual machine. 
 
 
-Recommendations 
+**Recommendations **
 
 I recommend validating and sanitizing user input, using absolute file paths, and implementing strict access controls to prevent unauthorized access to sensitive files. Disable directory listing and ensure proper error handling to avoid information leakage. Restrict container privileges by running them unprivileged, control device access, and keep both LXD and the host kernel updated. Use security profiles to isolate containers from the host system and reduce attack surfaces. Regularly audit container configurations and limit network exposure to trusted IPs. 
 
